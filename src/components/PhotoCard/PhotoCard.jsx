@@ -7,7 +7,7 @@ import { CardActionArea } from '@mui/material';
 import { useState } from 'react';
 import {Button} from '@mui/material';
 import './PhotoCard.css';
-function PhotoCard({imageGallery}) {
+function PhotoCard({imageGallery, likePost}) {
 
 
 
@@ -15,7 +15,11 @@ function PhotoCard({imageGallery}) {
     const handleClick = () => {
     console.log(imageGallery.title)
     clickDescription(!wasClicked)
-    } 
+    }
+
+    const handleLike = () => {
+        likePost(imageGallery.id)
+    }
 
 
   return (
@@ -39,7 +43,7 @@ function PhotoCard({imageGallery}) {
           <Typography gutterBottom variant="h5" component="div">
           <span>Likes: {imageGallery.likes}</span>
           <span> </span>
-            <Button variant="contained" color='success' className='likeButton'>
+            <Button variant="contained" color='success' onClick={handleLike}>
                 Like This Post
             </Button>
           </Typography>

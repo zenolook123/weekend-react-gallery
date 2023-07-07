@@ -19,12 +19,25 @@ function App() {
         console.log("Error getting images:", err);
         // alert("Error getting images");
       });
-  }; // end getShoppingList
+  }; 
 
   useEffect(() => {
     getImageGallery();
   }, []);
 
+  const likePost = (image) => {
+    console.log(image)
+    axios
+      .put(`/gallery/${image}`)
+      .then(response => {
+        getImageGallery()
+      })
+      .catch(err => {
+        alert("Error updating image");
+        console.log("Error updating image", err);
+      });
+  };
+  
 
     return (
       <div className="App">
@@ -34,6 +47,7 @@ function App() {
         <div className='imageGalleryDiv'>
         {imageGallery.map(imageGallery => (
           <PhotoCard
+            likePost={likePost}
             key={imageGallery.id}
             imageGallery={imageGallery}
           />
