@@ -21,6 +21,10 @@ function PhotoCard({imageGallery, likePost}) {
         likePost(imageGallery.id)
     }
 
+    const handleDelete = () => {
+        alert("You can take my pride but you wont take my cats.")
+    }
+
 
   return (
     <Card sx={{ maxWidth: 345 }} className='cards'>
@@ -30,7 +34,7 @@ function PhotoCard({imageGallery, likePost}) {
            height="500"
            image={imageGallery.url}
            alt={imageGallery.title}
-           onClick={handleClick}
+           onClick ={handleClick}
            key={imageGallery.id}
         />
         <CardContent>
@@ -46,6 +50,11 @@ function PhotoCard({imageGallery, likePost}) {
             <Button variant="contained" color='success' onClick={handleLike}>
                 Like This Post
             </Button>
+            <div className='delete-div'>
+            <Button variant="contained" color='error' onClick={handleDelete}>
+                Delete
+            </Button>
+            </div>
           </Typography>
         </CardContent>
       </CardActionArea>

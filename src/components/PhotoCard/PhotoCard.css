@@ -1,3 +1,9 @@
 .cards {
     margin: 5px 5px 5px 5px;
 }
+
+.delete-div {
+    margin-top: 5px;
+    justify-content: left;
+    display: flex;
+}
